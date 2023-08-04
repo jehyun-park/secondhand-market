@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>중고거래</title>
+
+
+  <link rel="stylesheet" href="/css/main.css">
+  <script
+          src="https://code.jquery.com/jquery-3.6.0.min.js"
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+          crossorigin="anonymous"
+  ></script>
+  <script src="/js/main.js"></script>
+
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="logo">중고마켓</div>
+    <div class="navigation">
+      <div th:if="${session.user != null}">
+        <span th:text="${session.user.nick}"></span>
+        <span>님 환영합니다.</span>
+        <a href="/logout">로그아웃</a>
+      </div>
+      <div th:if="${session.user == null}">
+        <a href="/login">로그인</a>
+        <a href="/register">회원가입</a>
+      </div>
+      <a href="/board/write">글쓰기</a>
+    </div>
+
+  </div>
+  <div class="search">
+    <input type="text" placeholder="브랜드명,모델명 등" />
+    <button>검색</button>
+  </div>
+  <div class="category">
+    <ul class="category-tabs">
+      <li class="tab-item active" data-tab="electronics"><a href="#">전자제품</a></li>
+      <li class="tab-item" data-tab="clothing"><a href="#">의류</a></li>
+      <li class="tab-item" data-tab="appliances"><a href="#">가전제품</a></li>
+      <li class="tab-item" data-tab="books"><a href="#">도서</a></li>
+      <li class="tab-item" data-tab="shoes"><a href="#">신발</a></li>
+      <li class="tab-item" data-tab="other"><a href="#">기타</a></li>
+      <li class="tab-item"><a href="/board/list">전체 글목록</a></li>
+    </ul>
+  </div>
+
+
+  <div style="margin-top: 50px"><h2>Just Dropped</h2></div>
+  <div class="products">
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2015/01/20/12/51/ipad-605420_1280.jpg" alt="product image" />
+      <h3 >아이패드 3세대 팝니다</h3>
+      <p>가격: 300,000원</p>
+      <button><a href="/board/view?id=168">입찰하기</a></button>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2016/03/27/07/12/apple-1282241_1280.jpg" alt="product image" />
+      <h3>맥북 에어 팝니다</h3>
+      <p>가격: 900,000원</p>
+      <button>입찰하기</button>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324_1280.jpg" alt="product image" />
+      <h3>아이폰 팝니다</h3>
+      <p>가격: 400,000원</p>
+      <button>입찰하기</button>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2016/11/19/18/06/feet-1840619_1280.jpg" alt="product image" />
+      <h3>나이키 운동화 팝니다</h3>
+      <p>가격: 150,000원</p>
+      <button><a href="board/view?id=164">입찰하기</a></button>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2020/05/03/19/09/nike-5126389_1280.jpg" alt="product image" />
+      <h3>나이키 운동화 팝니다</h3>
+      <p>가격: 100,000원</p>
+      <button><a href="board/view?id=164">입찰하기</a></button>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2014/09/11/18/32/books-441866_1280.jpg" alt="product image" />
+      <h3 >책 팝니다</h3>
+      <p>가격: 50,000원</p>
+      <button>입찰하기</button>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2021/01/29/14/41/wardrobe-5961193_1280.jpg" alt="product image" />
+      <h3>옷 팝니다</h3>
+      <p>가격: 50,000원</p>
+      <button>입찰하기</button>
+    </div>
+    <div class="product">
+      <img src="https://cdn.pixabay.com/photo/2014/08/05/10/27/iphone-410311_1280.jpg" alt="product image" />
+      <h3>아이폰 팝니다</h3>
+      <p>가격: 450,000원</p>
+      <button>입찰하기</button>
+    </div>
+
+    <script>
+
+
+    </script>
+
+
+  </div>
+  <div class="footer">
+
+    <p>ⓒ 2023 ㅁㅁㅁㅁ마켓 All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>상세페이지</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+    /* 이미지 스타일 */
+    img {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 80%;
+    }
+    /* 제목 스타일 */
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    /* 가격 스타일 */
+    p.price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f44336;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    /* 판매자 스타일 */
+    p.user {
+      font-size: 18px;
+      color: #757575;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    /* 상품 설명 스타일 */
+    p.content {
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      color: #333333;
+    }
+    /* 카테고리 스타일 */
+    p.category {
+      font-size: 18px;
+      color: #757575;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-wrapper green darken-2">
+        <a href="/" class="brand-logo center">상세페이지</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m6">
+            <img th:src="@{${board.filepath}}" class="responsive-img">
+        </div>
+        <div class="col s12 m6">
+            <h1 class="header center-align grey-text text-darken-3" th:text="${board.title}">제목입니다</h1>
+            <p class="grey-text user" th:text="${'판매자: '}">유저닉</p>
+            <p class="flow-text red-text price" th:text="${'가격:' + board.price + '원'}">가격입니다</p>
+            <p class="grey-text category" th:text="${'카테고리: '+ board.category}">카테고리입니다</p>
+            <p class="content" th:text="${'설명: '+ board.content}">내용입니다</p>
+            <div class="center-align">
+                <a class="waves-effect waves-light btn red darken-2" th:href="@{/board/delete(id=${board.id})}">글삭제</a>
+                <a class="waves-effect waves-light btn green darken-2" th:href="@{/board/modify/{id}(id=${board.id})}">수정</a>
+                <a class="waves-effect waves-light btn blue darken-2" th:href="@{/}">목록으로</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Materialize JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
+
+
+
+
+
